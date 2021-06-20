@@ -105,18 +105,20 @@
 	}
 	
 	
-	/*
 	function data_extenso($dia, $mes, $ano){
-		$data = mktime($mes, $dia, $ano);
-		if (checkdate($mes, $dia, $ano)){
-			echo date( $data);		
-		}
-		else{
-			echo "Data inválida!<br/>";	//verificar
-		}
-		
-	}*/
-	
+		if(!checkdate($dia, $mes,  $ano))
+			echo "Data inválida<br/>";
+		else {		
+			$data = mktime(0, 0, 0, $mes, $dia, $ano);
 
+			$dia = date('d', $data);
+			$mes = date('m', $data);
+			$ano = date('Y', $data);
 
+			echo $dia . "/" . $mes . "/" . $ano . "<br>";
+
+			//Ou apenas utilizo a função anterior.
+			// data_extenso_timestamp($data);
+		}
+	}
 ?> 
